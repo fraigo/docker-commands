@@ -8,3 +8,13 @@ docker-machine create --driver=virtualbox default
 # Syntax: docker-machine start {imagename}
 docker-machine start default
 
+# List machines and status
+docker-machine ls
+
+# To generate an environment variables script
+# related to the docker machine running
+docker-machine env
+
+# Apply environment variables in the current shell session
+eval $(docker-machine env)
+
