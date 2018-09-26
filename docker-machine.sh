@@ -22,14 +22,21 @@ eval $(docker-machine env)
 # Syntax: docker-machine ssh {imagename}
 docker-machine ssh default
 
+# Get the IP of the virtual machine
+docker-machine ip default
+# You can use it as a environment variable
+DOCKERIP=$(docker-machine ip default)
+
 # Manual way to access SSH 
 # - Get the ip using docker-machine ls
 # Enter using ssh user 'docker' and pass 'tcuser'
-ssh docker@192.168.99.102
+ssh docker@$DOCKERIP
 
 # Copy ssh key to enter without password
-ssh-copy-id docker@192.168.99.10
+ssh-copy-id docker@$DOCKERIP
 # Enter password 'tcuser' to copy .ssh/id_rsa.pub to docker machine
 # then you can access without password
-ssh docker@192.168.99.102
+ssh docker@$DOCKERIP
+
+
 
