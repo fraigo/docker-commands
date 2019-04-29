@@ -19,3 +19,9 @@ docker push $DOCKER_ID_USER/my_image
 
 # pull image
 docker pull $DOCKER_ID_USER/my_image
+
+
+# stop all cantainers
+docker stop $(docker ps -q)
+
+
