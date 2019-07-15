@@ -25,3 +25,14 @@ docker pull $DOCKER_ID_USER/my_image
 docker stop $(docker ps -q)
 
 
+#clean volumes not used
+docker volume prune -f
+
+# remove unused image overlay volumes
+docker image prune -a
+
+# remove all containers and images
+docker rm -vf $(docker ps -aq)
+docker rmi -f $(docker images -aq)
+
+
